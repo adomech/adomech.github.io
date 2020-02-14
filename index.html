@@ -52,7 +52,8 @@
 
   const getCachedData = async (cacheName , url) => {
     const cacheStorage = await caches.open(cacheName);
-    const cachedResponse = await cacheStorage.match(url);
+    const defaultRequest = new Request(url, { mode: 'no-cors' });
+    const cachedResponse = await cacheStorage.match(defaultRequest);
 
     if (!cachedResponse || !cachedResponse.ok) {
       return false;
