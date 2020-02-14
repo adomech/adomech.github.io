@@ -54,7 +54,8 @@
     const cacheStorage = await caches.open(cacheName);
     const defaultRequest = new Request(url, { 
       headers: {
-      "Access-Control-Allow-Origin": "*"
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
       }
        });
     const cachedResponse = await cacheStorage.match(defaultRequest);
