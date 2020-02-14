@@ -53,9 +53,8 @@
   const getCachedData = async (cacheName , url) => {
     const cacheStorage = await caches.open(cacheName);
     const defaultRequest = new Request(url, { 
-      mode: 'cors',
       headers: {
-      'Access-Control-Allow-Origin': 'https://adomech.github.io'
+      "Access-Control-Allow-Origin": "*"
       }
        });
     const cachedResponse = await cacheStorage.match(defaultRequest);
